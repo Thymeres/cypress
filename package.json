@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "cypress": "^14.0.0",
+    "dayjs": "^1.10.4",
+    "@faker-js/faker" : "^9.4.0" 
+  },
+  "name": "cypressexample",
+  "version": "1.0.0",
+  "description": "This is a test project for Cypress testing",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
