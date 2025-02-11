@@ -42,14 +42,8 @@ describe('User registration tests', function () {
         commonPage.successContinueBtn().click()
         // Home Page confirm user created
         cy.contains('Logged in as ' + userData.name).should('be.visible')
-        // Delete Account
-        landingPage.deletAccountBtn().click()
-        // Delete account success page
-        commonPage.headerTitle().should('have.text', 'Account Deleted!')
-        commonPage.successContinueBtn().click()
-        // Verify user is logged out
-        cy.get('i.fa-lock').should('not.contain', ' Logout!')
-        cy.contains('Logged in as ' + userData.name).should('not.exist')
+        
+        commonPage.deleteAccount()
 
     })
 })
