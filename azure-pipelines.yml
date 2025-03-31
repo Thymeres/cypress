@@ -1,0 +1,23 @@
+trigger:
+  - master 
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'  
+
+  - script: |
+      npm ci
+      npx cypress install
+      npx cypress run
+    displayName: 'Install dependencies and run Cypress tests'
+
+# Upload Cypress screenshots if tests fail
+  - task: PublishBuildArtifacts@1
+    condition: failed()  # Upload only if tests fail
+    inputs:
+      pathToPublish: 'cypress/screenshots'
+      artifactName: 'screenshots'
